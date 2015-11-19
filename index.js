@@ -3,10 +3,6 @@ import React, {Component, PropTypes, View, StyleSheet, Animated} from 'react-nat
 var Dimensions = require('Dimensions');
 var Screen = Dimensions.get('window');
 
-var fadeTime = 500;
-var minOpacity = 0.0;
-var maxOpacity = 0.9;
-
 class Toast extends Component {
   static propTypes = {
     children: PropTypes.node,
@@ -74,15 +70,15 @@ class Toast extends Component {
 
   fadeIn: function() {
     Animated.timing(this.state.opacityValue, {
-      duration: fadeTime,
-      toValue: maxOpacity
+      duration: Toast.fadeTime,
+      toValue: Toast.maxOpacity,
     }).start();
   }
 
   fadeOut: function() {
     Animated.timing(this.state.opacityValue, {
-      duration: fadeTime,
-      toValue: minOpacity
+      duration: Toast.fadeTime,
+      toValue: Toast.minOpacity,
     }).start();
   }
 
@@ -103,7 +99,7 @@ class Toast extends Component {
   }
 
   render: function() {
-    var message = this.props.children;
+    const message = this.props.children;
 
     if (!message) {
       return null;
