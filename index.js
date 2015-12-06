@@ -1,4 +1,10 @@
-import React, {Component, PropTypes, View, Animated, Dimensions} from 'react-native';
+import React, {
+  Component,
+  PropTypes,
+  View,
+  Animated,
+  Dimensions,
+} from 'react-native';
 
 const Screen = Dimensions.get('window');
 
