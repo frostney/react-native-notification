@@ -7,31 +7,42 @@
 import React, {
   AppRegistry,
   StyleSheet,
+  Component,
   Text,
   View,
+  TouchableHighlight,
 } from 'react-native';
 
-//import Notification from '../index.js';
-var Notification = require('../index.js');
+import Notification from 'react-native-notification';
 
-var NotificationExample = React.createClass({
-  render: function() {
+class NotificationExample extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      notificationVisible: false,
+    };
+  }
+
+  onPress = () => {
+    this.setState({
+      notificationVisible: true,
+    });
+  }
+
+  render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <TouchableHighlight onPress={this.onPress}>
+          <Text style={styles.welcome}>
+            Show notification
+          </Text>
+        </TouchableHighlight>
+        <Notification visible={this.notificationVisible}>Hello there!</Notification>
       </View>
     );
   }
-});
+}
 
 var styles = StyleSheet.create({
   container: {
