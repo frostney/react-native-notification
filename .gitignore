@@ -13,6 +13,7 @@ Icon
 
 # Node.js
 node_modules
+npm-debug.log
 
 # Webstorm
 .idea
