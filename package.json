@@ -1,5 +1,14 @@
 {
-  "name": "RNToast",
-  "version": "0.0.1",
-  "keywords": "react-native"
+  "name": "react-native-notification",
+  "version": "1.0.0",
+  "keywords": "react-native",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.5",
+    "eslint": "^1.10.1",
+    "eslint-config-airbnb": "^1.0.0",
+    "eslint-plugin-react": "^3.10.0"
+  }
 }
