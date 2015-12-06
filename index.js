@@ -1,9 +1,8 @@
-import React, {Component, PropTypes, View, StyleSheet, Animated} from 'react-native';
+import React, {Component, PropTypes, View, Animated, Dimensions} from 'react-native';
 
-var Dimensions = require('Dimensions');
-var Screen = Dimensions.get('window');
+const Screen = Dimensions.get('window');
 
-class Toast extends Component {
+class Notification extends Component {
   static propTypes = {
     children: PropTypes.node,
     visible: PropTypes.bool,
@@ -11,6 +10,46 @@ class Toast extends Component {
 
   static defaultProps = {
     visible: true,
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      opacityValue: new Animated.Value(Notification.minOpacity),
+    };
+  }
+
+  componentDidMount() {
+    if (this.props.visible) {
+      this.fadeIn();
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.visible && !this.props.visible) {
+      this.fadeIn();
+    } else {
+      if (!nextProps.visible && this.props.visible) {
+        this.fadeOut();
+      }
+    }
+  }
+
+  shouldComponentUpdate(nextProps) {
+    /* if (this.props.message !== nextProps.message) {
+      return true;
+    }*/
+
+    if (this.props.visible !== nextProps.visible) {
+      return true;
+    }
+
+    if (this.state.opacityValue.__getValue() !== this.state.opacityValue.__getValue()) {
+      return true;
+    }
+
+    return false;
   }
 
   static fadeTime = 500
@@ -27,14 +66,14 @@ class Toast extends Component {
       backgroundColor: '#444',
       alignItems: 'center',
       padding: 6,
-      opacity: Toast.minOpacity,
+      opacity: Notification.minOpacity,
       borderRadius: 12,
       shadowColor: '#000',
       shadowOpacity: 0.5,
       shadowRadius: 1,
       shadowOffset: {
         width: 0,
-        height: 1
+        height: 1,
       },
     },
     message: {
@@ -44,61 +83,21 @@ class Toast extends Component {
     },
   }
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      opacityValue: new Animated.Value(Toast.minOpacity),
-    };
-  }
-
-  shouldComponentUpdate: function(nextProps, nextState) {
-    if (this.props.message !== nextProps.message) {
-      return true;
-    }
-
-    if (this.props.visible !== nextProps.visible) {
-      return true;
-    }
-
-    if (this.state.opacityValue.__getValue() !== this.state.opacityValue.__getValue()) {
-      return true;
-    }
-
-    return false;
-  }
-
-  fadeIn: function() {
+  fadeIn() {
     Animated.timing(this.state.opacityValue, {
-      duration: Toast.fadeTime,
-      toValue: Toast.maxOpacity,
+      duration: Notification.fadeTime,
+      toValue: Notification.maxOpacity,
     }).start();
   }
 
-  fadeOut: function() {
+  fadeOut() {
     Animated.timing(this.state.opacityValue, {
-      duration: Toast.fadeTime,
-      toValue: Toast.minOpacity,
+      duration: Notification.fadeTime,
+      toValue: Notification.minOpacity,
     }).start();
   }
 
-  componentWillReceiveProps: function(nextProps) {
-    if (nextProps.visible && !this.props.visible) {
-      this.fadeIn();
-    } else {
-      if (!nextProps.visible && this.props.visible) {
-        this.fadeOut();
-      }
-    }
-  }
-
-  componentDidMount: function() {
-    if (this.props.visible) {
-      this.fadeIn();
-    }
-  }
-
-  render: function() {
+  render() {
     const message = this.props.children;
 
     if (!message) {
@@ -106,11 +105,11 @@ class Toast extends Component {
     }
 
     return (
-      <Animated.View style={[Toast.styles.container, {opacity: this.state.opacityValue}]}>
-        <Text style={Toast.styles.message}>{message}</Text>
+      <Animated.View style={[Notification.styles.container, {opacity: this.state.opacityValue}]}>
+        <Text style={Notification.styles.message}>{message}</Text>
       </Animated.View>
     );
   }
 }
 
-export default Toast;
+export default Notification;
