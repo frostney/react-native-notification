@@ -1,2 +1,2 @@
-# react-native-toast
-Toast messages for React Native
+# react-native-notification
+Customizable toast-like notifications for React Native
