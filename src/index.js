@@ -1,7 +1,7 @@
 import React, {
   Component,
   PropTypes,
-  View,
+  Text,
   Animated,
   Dimensions,
 } from 'react-native';
