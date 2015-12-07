@@ -2,7 +2,6 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-'use strict';
 
 import React, {
   AppRegistry,
@@ -14,6 +13,8 @@ import React, {
 } from 'react-native';
 
 import Notification from 'react-native-notification';
+
+let styles;
 
 class NotificationExample extends Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class NotificationExample extends Component {
   }
 }
 
-var styles = StyleSheet.create({
+styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
