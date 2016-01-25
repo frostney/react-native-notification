@@ -34,9 +34,9 @@ class MyComponent extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <TouchableOpacity onPress={this.onPress}>
-          <Text>Tap me!</Text>
+          <Text style={styles.text}>Tap me!</Text>
         </TouchableOpacity>
         <Notification visible={this.state.notificationVisible}>Hi there</Notification>
       </View>
