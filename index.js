@@ -12,11 +12,11 @@ class Notification extends Component {
   static propTypes = {
     children: PropTypes.node,
     visible: PropTypes.bool,
-  }
+  };
 
   static defaultProps = {
     visible: true,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -52,6 +52,7 @@ class Notification extends Component {
       return true;
     }
 
+    // TODO: Is there a reliable way not use `__getValue` and something else that may not be as unstable
     if (this.state.opacityValue.__getValue() !== this.state.opacityValue.__getValue()) {
       return true;
     }
@@ -59,14 +60,14 @@ class Notification extends Component {
     return false;
   }
 
-  static fadeTime = 500
-  static minOpacity = 0.0
-  static maxOpacity = 0.9
+  static fadeTime = 500;
+  static minOpacity = 0.0;
+  static maxOpacity = 0.9;
 
   static styles = {
     container: {
       position: 'absolute',
-      top: Screen.height - 35 - 20,
+      top: Screen.height - 35 - (Screen.height / 12),
       width: Screen.width - 80,
       left: 40,
       right: 40,
@@ -88,7 +89,7 @@ class Notification extends Component {
       fontSize: 12,
       textAlign: 'center',
     },
-  }
+  };
 
   fadeIn() {
     Animated.timing(this.state.opacityValue, {
