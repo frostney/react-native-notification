@@ -43,6 +43,7 @@ class Notification extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
+    // TODO: Compare the messages with each other
     /* if (this.props.message !== nextProps.message) {
       return true;
     }*/
