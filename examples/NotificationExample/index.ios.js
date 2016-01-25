@@ -2,18 +2,17 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-'use strict';
-
-var React = require('react-native');
-var {
+import React, {
   AppRegistry,
   StyleSheet,
+  Component
   Text,
   View,
-} = React;
+} from 'react-native';
+import Notification from 'react-native-notification';
 
-var NotificationExample = React.createClass({
-  render: function() {
+class NotificationExample extends Component {
+  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -29,7 +28,7 @@ var NotificationExample = React.createClass({
       </View>
     );
   }
-});
+}
 
 var styles = StyleSheet.create({
   container: {
