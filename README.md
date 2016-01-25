@@ -2,10 +2,27 @@
 Customizable toast-like notifications for React Native
 
 ## Install
+```
+$ npm install react-native-notification
+```
 
 ## Usage
+```
+import React, { Component, TouchableHighlight } from 'react-native';
+import Notification from 'react-native-notification';
 
-### Basic usage
+class MyComponent extends Component {
+  render() {
+    return (
+      <View>
+
+      </View>
+    );
+  }
+}
+
+export default MyComponent;
+```
 
 ### Customization
 
