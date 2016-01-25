@@ -5,26 +5,45 @@
 import React, {
   AppRegistry,
   StyleSheet,
-  Component
+  Component,
   Text,
   View,
+  TouchableOpacity,
 } from 'react-native';
 import Notification from 'react-native-notification';
 
 class NotificationExample extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      notificationVisible: false,
+    }
+  }
+
+  onPress = () => {
+    this.setState({
+      notificationVisible: true,
+    });
+
+    setInterval(() => {
+      this.setState({
+        notificationVisible: false,
+      });
+    }, 3000);
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <TouchableOpacity onPress={this.onPress}>
+          <Text style={styles.welcome}>
+            Tap me!
+          </Text>
+        </TouchableOpacity>
+        <Notification visible={this.state.notificationVisible}>
+          Hi there!
+        </Notification>
       </View>
     );
   }
