@@ -25,7 +25,7 @@ class NotificationExample extends Component {
       notificationVisible: true,
     });
 
-    setInterval(() => {
+    setTimeout(() => {
       this.setState({
         notificationVisible: false,
       });
