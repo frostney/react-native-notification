@@ -1,6 +1,6 @@
 {
   "name": "react-native-notification",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "react-component",
     "react-native",
@@ -13,6 +13,15 @@
   "scripts": {
     "lint": "eslint ."
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frostney/react-native-notification.git"
+  },
+  "homepage": "https://github.com/frostney/react-native-notification#readme",
+  "bugs": {
+    "url": "https://github.com/frostney/react-native-notification/issues"
+  },
+  "author": "Johannes Stein",
   "devDependencies": {
     "babel-eslint": "^4.1.5",
     "eslint": "^1.10.3",
