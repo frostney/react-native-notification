@@ -67,7 +67,7 @@ class Notification extends Component {
   static styles = {
     container: {
       position: 'absolute',
-      top: Screen.height - 35 - (Screen.height / 12),
+      bottom: 35,
       width: Screen.width - 80,
       left: 40,
       right: 40,
