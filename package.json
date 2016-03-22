@@ -1,6 +1,7 @@
 {
   "name": "react-native-notification",
-  "version": "1.0.1",
+  "description": "Customizable toast-like notifications for React Native",
+  "version": "1.0.2",
   "keywords": [
     "react-component",
     "react-native",
