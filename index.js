@@ -9,15 +9,6 @@ import React, {
 const Screen = Dimensions.get('window');
 
 class Notification extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-    visible: PropTypes.bool,
-  };
-
-  static defaultProps = {
-    visible: true,
-  };
-
   constructor(props) {
     super(props);
 
@@ -88,6 +79,15 @@ class Notification extends Component {
     );
   }
 }
+
+Notification.propTypes = {
+  children: PropTypes.node,
+  visible: PropTypes.bool,
+};
+
+Notification.defaultProps = {
+  visible: true,
+};
 
 Notification.fadeTime = 500;
 Notification.minOpacity = 0.0;
