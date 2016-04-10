@@ -5,14 +5,42 @@
   "keywords": [
     "react-component",
     "react-native",
+    "component",
     "ios",
     "android",
     "notification",
     "toast"
   ],
-  "main": "index.js",
+  "main": "dist/react-native-notification.js",
+  "jsnext:main": "dist/react-native-notification.es2015.js",
   "scripts": {
-    "lint": "eslint ."
+    "prebuild": "rimraf dist",
+    "build": "rollup-babel-lib-bundler -f cjs,es6 src/index.js",
+    "prepublish": "in-publish && npm run build || not-in-publish",
+    "lint": "eslint src",
+    "precommit": "npm run lint",
+    "test": "ava --verbose 'src/**/*.test.js'",
+    "coverage": "nyc --reporter lcov --reporter html ava 'src/**/*.test.js'"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "ava": {
+    "babel": "inherit",
+    "require": "./ava-jsdom-setup"
+  },
+  "rollupBabelLibBundler": {
+    "babel": {
+      "presets": [
+        "es2015-loose-rollup",
+        "react"
+      ],
+      "plugins": [
+        "transform-class-properties",
+        "transform-object-rest-spread"
+      ]
+    }
   },
   "repository": {
     "type": "git",
@@ -24,10 +52,26 @@
   },
   "author": "Johannes Stein",
   "devDependencies": {
+    "ava": "^0.14.0",
     "babel-eslint": "^4.1.5",
+    "babel-plugin-transform-class-properties": "^6.6.0",
+    "babel-plugin-transform-object-rest-spread": "^6.6.5",
+    "babel-polyfill": "^6.7.4",
+    "babel-preset-es2015-loose": "^7.0.0",
+    "babel-preset-es2015-loose-rollup": "^7.0.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-register": "^6.7.2",
+    "enzyme": "^2.2.0",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^1.0.2",
-    "eslint-plugin-react": "^3.10.0"
+    "eslint-plugin-react": "^3.10.0",
+    "in-publish": "^2.0.0",
+    "react": "^0.14.8",
+    "react-addons-test-utils": "^0.14.8",
+    "react-native": "^0.23.1",
+    "react-native-mock": "0.0.7",
+    "rimraf": "^2.5.2",
+    "rollup-babel-lib-bundler": "^2.5.5"
   },
   "license": "MIT"
 }

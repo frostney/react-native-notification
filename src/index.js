@@ -9,6 +9,15 @@ import React, {
 const Screen = Dimensions.get('window');
 
 class Notification extends Component {
+  static propTypes = {
+    children: PropTypes.node,
+    visible: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    visible: true,
+  };
+
   constructor(props) {
     super(props);
 
@@ -51,14 +60,45 @@ class Notification extends Component {
     return false;
   }
 
-  fadeIn() {
+  static fadeTime = 500;
+  static minOpacity = 0.0;
+  static maxOpacity = 0.9;
+
+  static styles = {
+    container: {
+      position: 'absolute',
+      bottom: 35,
+      width: Screen.width - 80,
+      left: 40,
+      right: 40,
+      backgroundColor: '#444',
+      alignItems: 'center',
+      padding: 6,
+      opacity: Notification.minOpacity,
+      borderRadius: 12,
+      shadowColor: '#000',
+      shadowOpacity: 0.5,
+      shadowRadius: 1,
+      shadowOffset: {
+        width: 0,
+        height: 1,
+      },
+    },
+    message: {
+      color: '#fff',
+      fontSize: 12,
+      textAlign: 'center',
+    },
+  };
+
+  fadeIn = () => {
     Animated.timing(this.state.opacityValue, {
       duration: Notification.fadeTime,
       toValue: Notification.maxOpacity,
     }).start();
   }
 
-  fadeOut() {
+  fadeOut = () => {
     Animated.timing(this.state.opacityValue, {
       duration: Notification.fadeTime,
       toValue: Notification.minOpacity,
@@ -79,45 +119,5 @@ class Notification extends Component {
     );
   }
 }
-
-Notification.propTypes = {
-  children: PropTypes.node,
-  visible: PropTypes.bool,
-};
-
-Notification.defaultProps = {
-  visible: true,
-};
-
-Notification.fadeTime = 500;
-Notification.minOpacity = 0.0;
-Notification.maxOpacity = 0.9;
-
-Notification.styles = {
-  container: {
-    position: 'absolute',
-    bottom: 35,
-    width: Screen.width - 80,
-    left: 40,
-    right: 40,
-    backgroundColor: '#444',
-    alignItems: 'center',
-    padding: 6,
-    opacity: Notification.minOpacity,
-    borderRadius: 12,
-    shadowColor: '#000',
-    shadowOpacity: 0.5,
-    shadowRadius: 1,
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-  },
-  message: {
-    color: '#fff',
-    fontSize: 12,
-    textAlign: 'center',
-  },
-};
 
 export default Notification;
