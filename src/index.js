@@ -59,6 +59,13 @@ class Notification extends Component {
     };
   }
 
+  shouldComponentUpdate() {
+    if ( this.props.message != '' ) {
+      return true;
+    }
+    return false;
+  }
+
   componentWillReceiveProps() {
     this.fadeIn();
 
@@ -82,6 +89,10 @@ class Notification extends Component {
   }
 
   render() {
+
+    if ( this.props.message === '' ) {
+      return null;
+    }
 
     return (
       <Animated.View style={[styles.container, { opacity: this.state.opacityValue }]}>
