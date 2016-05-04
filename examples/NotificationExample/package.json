@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "react-native": "^0.18.0",
-    "react-native-notification": "^1.0.0"
+    "react-native-notification": "file:../"
   },
   "devDependencies": {}
 }
