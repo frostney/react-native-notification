@@ -59,13 +59,6 @@ class Notification extends Component {
     };
   }
 
-  shouldComponentUpdate() {
-    if ( this.props.message != '' ) {
-      return true;
-    }
-    return false;
-  }
-
   componentWillReceiveProps() {
     this.fadeIn();
 
