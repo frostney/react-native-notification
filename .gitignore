@@ -39,3 +39,9 @@ DerivedData
 .idea/
 
 dist
+
+examples/*/android
+examples/*/ios
+examples/*/node_modules
+examples/*/.watchmanconfig
+examples/*/.flowconfig

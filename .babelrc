@@ -1,8 +1,5 @@
 {
-  "presets": [
-    "es2015-loose",
-    "react"
-  ],
+  "presets": ["react-native"],
   "plugins": [
     "transform-class-properties",
     "transform-object-rest-spread"
