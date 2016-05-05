@@ -1,6 +1,0 @@
-examples/
-.babelrc
-.editorconfig
-.eslintignore
-ava-jsdom-setup.js
-docs/
