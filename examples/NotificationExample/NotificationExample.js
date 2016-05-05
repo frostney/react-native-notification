@@ -3,8 +3,10 @@
  * https://github.com/facebook/react-native
  */
 import React, {
-  StyleSheet,
   Component,
+} from 'react';
+import {
+  StyleSheet,
   Text,
   View,
   TouchableOpacity,

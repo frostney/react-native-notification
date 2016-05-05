@@ -1,7 +1,9 @@
 import React, {
   Component,
-  StyleSheet,
   PropTypes,
+} from 'react';
+import {
+  StyleSheet,
   Text,
   Animated,
   Dimensions,
