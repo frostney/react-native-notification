@@ -1,13 +1,13 @@
 {
   "name": "NotificationExample",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "react-native start"
   },
   "dependencies": {
     "react-native": "^0.18.0",
-    "react-native-notification": "file:../"
+    "react-native-notification": "file:../../"
   },
   "devDependencies": {}
 }
