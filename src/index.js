@@ -83,6 +83,10 @@ class Notification extends Component {
 
   render() {
 
+    if ( this.props.message === '' ) {
+      return null;
+    }
+
     return (
       <Animated.View style={[styles.container, { opacity: this.state.opacityValue }]}>
         <Text style={styles.message}>{this.props.message}</Text>
