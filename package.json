@@ -1,7 +1,7 @@
 {
   "name": "react-native-notification",
   "description": "Customizable toast-like notifications for React Native",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "keywords": [
     "react-component",
     "react-native",
@@ -11,36 +11,19 @@
     "notification",
     "toast"
   ],
-  "main": "dist/react-native-notification.js",
-  "jsnext:main": "dist/react-native-notification.es2015.js",
+  "main": "src/index.js",
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "rollup-babel-lib-bundler -f cjs,es6 src/index.js",
-    "prepublish": "in-publish && npm run build || not-in-publish",
     "lint": "eslint src",
     "precommit": "npm run lint",
     "test": "ava --verbose 'src/**/*.test.js'",
     "coverage": "nyc --reporter lcov --reporter html ava 'src/**/*.test.js'"
   },
   "files": [
-    "dist",
     "src"
   ],
   "ava": {
     "babel": "inherit",
     "require": "./ava-jsdom-setup"
-  },
-  "rollupBabelLibBundler": {
-    "babel": {
-      "presets": [
-        "es2015-loose-rollup",
-        "react"
-      ],
-      "plugins": [
-        "transform-class-properties",
-        "transform-object-rest-spread"
-      ]
-    }
   },
   "repository": {
     "type": "git",
@@ -52,6 +35,7 @@
   },
   "author": "Johannes Stein",
   "devDependencies": {
+    "babel-preset-react-native": "^1.5.6",
     "babel-eslint": "^6.0.3",
     "eslint": "^2.9.0",
     "eslint-config-airbnb": "^8.0.0",
@@ -59,21 +43,12 @@
     "eslint-plugin-jsx-a11y": "^1.0.2",
     "eslint-plugin-react": "^5.0.1",
     "ava": "^0.14.0",
-    "babel-plugin-transform-class-properties": "^6.6.0",
-    "babel-plugin-transform-object-rest-spread": "^6.6.5",
-    "babel-polyfill": "^6.7.4",
-    "babel-preset-es2015-loose": "^7.0.0",
-    "babel-preset-es2015-loose-rollup": "^7.0.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-register": "^6.7.2",
     "enzyme": "^2.2.0",
-    "in-publish": "^2.0.0",
     "react": "^0.14.8",
     "react-addons-test-utils": "^0.14.8",
-    "react-native": "^0.23.1",
-    "react-native-mock": "0.0.7",
-    "rimraf": "^2.5.2",
-    "rollup-babel-lib-bundler": "^2.5.5"
+    "react-native": "^0.18.0",
+    "react-native-mock": "0.0.7"
+
   },
   "license": "MIT"
 }
