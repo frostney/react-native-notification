@@ -36,13 +36,15 @@ class Notification extends Component {
     };
   }
 
-  componentWillReceiveProps() {
-    this.fadeIn();
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.message) {
+      this.fadeIn();
 
-    const timerId = setTimeout(() => {
-      this.fadeOut();
-      clearTimeout(timerId);
-    }, this.props.timeout);
+      const timerId = setTimeout(() => {
+        this.fadeOut();
+        clearTimeout(timerId);
+      }, this.props.timeout);
+    }
   }
 
   fadeIn = () => {
