@@ -38,7 +38,7 @@ class MyComponent extends Component {
         <TouchableOpacity onPress={this.onPress}>
           <Text style={styles.text}>Tap me!</Text>
         </TouchableOpacity>
-        <Notification visible={this.state.notificationVisible}>Hi there</Notification>
+        {(this.state.notificationVisible) ? <Notification>Hi there</Notification> : null}
       </View>
     );
   }
