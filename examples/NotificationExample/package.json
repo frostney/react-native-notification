@@ -6,7 +6,8 @@
     "start": "react-native start"
   },
   "dependencies": {
-    "react-native": "^0.18.0",
+    "react": "^0.14.8",
+    "react-native": "^0.25.1",
     "react-native-notification": "file:../../"
   },
   "devDependencies": {}
