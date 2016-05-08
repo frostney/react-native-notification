@@ -1,3 +1,5 @@
+require('react-native-mock/mock');
+
 require('babel-register');
 require('babel-polyfill');
 
