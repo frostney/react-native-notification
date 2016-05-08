@@ -11,11 +11,11 @@
     "notification",
     "toast"
   ],
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "lint": "eslint src",
     "precommit": "npm run lint",
-    "test": "ava --verbose 'src/**/*.test.js'",
+    "test": "ava --verbose '**/*.test.js'",
     "coverage": "nyc --reporter lcov --reporter html ava 'src/**/*.test.js'"
   },
   "files": [
@@ -35,20 +35,23 @@
   },
   "author": "Johannes Stein",
   "devDependencies": {
-    "babel-preset-react-native": "^1.5.6",
+    "ava": "^0.14.0",
     "babel-eslint": "^6.0.3",
+    "babel-preset-react-native": "^1.7.0",
+    "codecov": "^1.0.1",
+    "enzyme": "^2.2.0",
     "eslint": "^2.9.0",
-    "eslint-config-airbnb": "^8.0.0",
+    "eslint-config-airbnb": "^9.0.0",
     "eslint-plugin-import": "^1.5.0",
     "eslint-plugin-jsx-a11y": "^1.0.2",
     "eslint-plugin-react": "^5.0.1",
-    "ava": "^0.14.0",
-    "enzyme": "^2.2.0",
+    "nyc": "^6.4.3",
     "react": "^0.14.8",
     "react-addons-test-utils": "^0.14.8",
-    "react-native": "^0.18.0",
+    "react-dom": "^0.14.8",
+    "react-native": "^0.25.1",
     "react-native-mock": "0.0.7"
-
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {}
 }

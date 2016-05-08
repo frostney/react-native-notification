@@ -16,20 +16,14 @@ import Notification from 'react-native-notification';
 class MyComponent extends Component {
   constructor() {
     this.state = {
-      notificationVisible: false,
+      message: '',
     };
   }
 
   onPress = () => {
     this.setState({
-      notificationVisible: true,
+      message: 'Hi there',
     });
-
-    setTimeout(() => {
-      this.setState({
-        notificationVisible: false,
-      });
-    }, 3000);
   };
 
   render() {
@@ -38,7 +32,7 @@ class MyComponent extends Component {
         <TouchableOpacity onPress={this.onPress}>
           <Text style={styles.text}>Tap me!</Text>
         </TouchableOpacity>
-        <Notification visible={this.state.notificationVisible}>Hi there</Notification>
+        <Notification message={this.state.message} />
       </View>
     );
   }
@@ -63,6 +57,10 @@ export default MyComponent;
 
 ### Customization
 The styles of the notification are exposed as `Notification.styles`. The `container` property describes the notification container (by default the rounded gray-ish rectangle) and the `message` property the message itself (the white color text).
+
+## What may be in store for future versions
+- Allow message as `props.children` allowing other components to be part of the message
+- More unit tests
 
 ## License
 MIT (See `LICENSE`)
