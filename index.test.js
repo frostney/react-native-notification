@@ -9,5 +9,5 @@ test(t => {
     <Notification>Hello world</Notification>
   );
 
-  t.ok(wrapper);
+  t.truthy(wrapper);
 });

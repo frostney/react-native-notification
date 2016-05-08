@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
 });
 
 const propTypes = {
+  timeout: PropTypes.number,
   fadeTime: PropTypes.number,
   minOpacity: PropTypes.number,
   maxOpacity: PropTypes.number,
@@ -45,6 +46,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  timeout: 3000,
   fadeTime: 500,
   minOpacity: 0.0,
   maxOpacity: 0.9,
@@ -52,7 +54,6 @@ const defaultProps = {
 };
 
 class Notification extends Component {
-
   constructor(props) {
     super(props);
 
@@ -64,9 +65,10 @@ class Notification extends Component {
   componentWillReceiveProps() {
     this.fadeIn();
 
-    setTimeout(() => {
+    const timerId = setTimeout(() => {
       this.fadeOut();
-    }, 3000);
+      clearTimeout(timerId);
+    }, this.props.timeout);
   }
 
   fadeIn = () => {
@@ -84,7 +86,6 @@ class Notification extends Component {
   }
 
   render() {
-
     if ( this.props.message === '' ) {
       return null;
     }
