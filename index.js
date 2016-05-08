@@ -11,32 +11,6 @@ import {
 
 const Screen = Dimensions.get('window');
 
-const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    bottom: 35,
-    width: Screen.width - 80,
-    left: 40,
-    right: 40,
-    backgroundColor: '#444',
-    alignItems: 'center',
-    padding: 6,
-    borderRadius: 12,
-    shadowColor: '#000',
-    shadowOpacity: 0.5,
-    shadowRadius: 1,
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-  },
-  message: {
-    color: '#fff',
-    fontSize: 12,
-    textAlign: 'center',
-  },
-});
-
 const propTypes = {
   timeout: PropTypes.number,
   fadeTime: PropTypes.number,
@@ -91,8 +65,8 @@ class Notification extends Component {
     }
 
     return (
-      <Animated.View style={[styles.container, { opacity: this.state.opacityValue }]}>
-        <Text style={styles.message}>{this.props.message}</Text>
+      <Animated.View style={[Notification.styles.container, { opacity: this.state.opacityValue }]}>
+        <Text style={Notification.styles.message}>{this.props.message}</Text>
       </Animated.View>
     );
   }
@@ -100,5 +74,30 @@ class Notification extends Component {
 
 Notification.propTypes = propTypes;
 Notification.defaultProps = defaultProps;
+Notification.styles = StyleSheet.create({
+  container: {
+    position: 'absolute',
+    bottom: 35,
+    width: Screen.width - 80,
+    left: 40,
+    right: 40,
+    backgroundColor: '#444',
+    alignItems: 'center',
+    padding: 6,
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOpacity: 0.5,
+    shadowRadius: 1,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+  },
+  message: {
+    color: '#fff',
+    fontSize: 12,
+    textAlign: 'center',
+  },
+});
 
 export default Notification;
