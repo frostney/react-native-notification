@@ -53,7 +53,5 @@
     "react-native-mock": "0.0.7"
   },
   "license": "MIT",
-  "dependencies": {
-    "rollup-babel-lib-bundler": "^3.0.1"
-  }
+  "dependencies": {}
 }
