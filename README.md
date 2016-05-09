@@ -1,4 +1,4 @@
-# react-native-notification [![npm version](https://img.shields.io/npm/v/react-native-notification.svg?style=flat)](https://www.npmjs.com/package/react-native-notification)
+# react-native-notification [![npm version](https://img.shields.io/npm/v/react-native-notification.svg?style=flat)](https://www.npmjs.com/package/react-native-notification) [![react-native-notification](https://img.shields.io/npm/dt/react-native-notification.svg?style=flat)](https://www.npmjs.org/package/react-native-notification)
 Customizable toast-like notifications for React Native 
 
 ![notification](https://github.com/frostney/react-native-notification/blob/master/docs/notification-ios.gif)
