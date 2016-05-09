@@ -78,6 +78,7 @@ class Notification extends Component {
       <Modal
         transparent={true}
         visible={this.state.modalVisible}
+        onRequestClose={() => {this.setState({modalVisible: false})}}
       >
         <Animated.View style={[Notification.styles.container, { opacity: this.state.opacityValue }]}>
           <Text style={Notification.styles.message}>{this.props.message}</Text>
