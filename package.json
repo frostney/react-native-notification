@@ -13,10 +13,10 @@
   ],
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src",
+    "lint": "eslint index.js index.test.js examples/",
     "precommit": "npm run lint",
-    "test": "ava --verbose '**/*.test.js'",
-    "coverage": "nyc --reporter lcov --reporter html ava 'src/**/*.test.js'"
+    "test": "ava --verbose 'index.test.js'",
+    "coverage": "nyc --reporter lcov --reporter html ava 'index.test.js'"
   },
   "files": [
     "src"
