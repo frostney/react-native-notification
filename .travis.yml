@@ -3,7 +3,7 @@ node_js:
   - 6
 
 script:
-  - npm run lint
+  - eslint index.js index.test.js
   - npm test
 
 after_success:

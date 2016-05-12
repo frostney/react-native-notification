@@ -62,7 +62,7 @@ class Notification extends Component {
   }
 
   render() {
-    if ( this.props.message === '' ) {
+    if (this.props.message === '') {
       return null;
     }
 
