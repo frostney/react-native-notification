@@ -7,6 +7,7 @@ import {
   Text,
   Animated,
   Dimensions,
+  Modal,
 } from 'react-native';
 
 const Screen = Dimensions.get('window');
@@ -33,15 +34,22 @@ class Notification extends Component {
 
     this.state = {
       opacityValue: new Animated.Value(this.props.minOpacity),
+      modalVisible: false,
     };
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.message) {
       this.fadeIn();
+      this.setState({
+          modalVisible: true,
+        });
 
       const timerId = setTimeout(() => {
         this.fadeOut();
+        this.setState({
+          modalVisible: false,
+        });
         clearTimeout(timerId);
       }, this.props.timeout);
     }
@@ -67,9 +75,15 @@ class Notification extends Component {
     }
 
     return (
-      <Animated.View style={[Notification.styles.container, { opacity: this.state.opacityValue }]}>
-        <Text style={Notification.styles.message}>{this.props.message}</Text>
-      </Animated.View>
+      <Modal
+        transparent={true}
+        visible={this.state.modalVisible}
+        onRequestClose={() => {this.setState({modalVisible: false})}}
+      >
+        <Animated.View style={[Notification.styles.container, { opacity: this.state.opacityValue }]}>
+          <Text style={Notification.styles.message}>{this.props.message}</Text>
+        </Animated.View>
+      </Modal>
     );
   }
 }
