@@ -33,6 +33,31 @@ class Notification extends Component {
 
     this.state = {
       opacityValue: new Animated.Value(this.props.minOpacity),
+      styles: StyleSheet.create(this.props.styles ? this.props.styles : {
+        container: {
+          position: 'absolute',
+          bottom: 35,
+          width: Screen.width - 80,
+          left: 40,
+          right: 40,
+          backgroundColor: '#444',
+          alignItems: 'center',
+          padding: 6,
+          borderRadius: 12,
+          shadowColor: '#000',
+          shadowOpacity: 0.5,
+          shadowRadius: 1,
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+        },
+        message: {
+          color: '#fff',
+          fontSize: 12,
+          textAlign: 'center',
+        },
+      }),
     };
   }
 
@@ -67,8 +92,8 @@ class Notification extends Component {
     }
 
     return (
-      <Animated.View style={[Notification.styles.container, { opacity: this.state.opacityValue }]}>
-        <Text style={Notification.styles.message}>{this.props.message}</Text>
+      <Animated.View style={[this.state.styles.container, { opacity: this.state.opacityValue }]}>
+        <Text style={this.state.styles.message}>{this.props.message}</Text>
       </Animated.View>
     );
   }
@@ -76,30 +101,5 @@ class Notification extends Component {
 
 Notification.propTypes = propTypes;
 Notification.defaultProps = defaultProps;
-Notification.styles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    bottom: 35,
-    width: Screen.width - 80,
-    left: 40,
-    right: 40,
-    backgroundColor: '#444',
-    alignItems: 'center',
-    padding: 6,
-    borderRadius: 12,
-    shadowColor: '#000',
-    shadowOpacity: 0.5,
-    shadowRadius: 1,
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-  },
-  message: {
-    color: '#fff',
-    fontSize: 12,
-    textAlign: 'center',
-  },
-});
 
 export default Notification;

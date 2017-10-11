@@ -32,25 +32,23 @@ class MyComponent extends Component {
         <TouchableOpacity onPress={this.onPress}>
           <Text style={styles.text}>Tap me!</Text>
         </TouchableOpacity>
-        <Notification message={this.state.message} />
+        <Notification message={this.state.message} styles={{
+          container: {
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: '#F5FCFF',
+          },
+          text: {
+            fontSize: 20,
+            textAlign: 'center',
+            margin: 10,
+          },
+        }} />
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  text: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-});
 
 export default MyComponent;
 ```
