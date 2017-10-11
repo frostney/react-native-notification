@@ -53,5 +53,7 @@
     "react-native-mock": "0.0.7"
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "prop-types": "^15.6.0"
+  }
 }
